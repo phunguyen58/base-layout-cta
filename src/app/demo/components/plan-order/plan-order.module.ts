@@ -10,7 +10,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import {CheckboxModule} from 'primeng/checkbox';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ButtonModule } from 'primeng/button';
-
+import { DialogModule } from 'primeng/dialog';
+import { TabViewModule } from 'primeng/tabview';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -25,7 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextareaModule,
     CheckboxModule,
     ConfirmDialogModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule,
+    TabViewModule
   ],
   declarations: [PlanOrderComponent],
   bootstrap: [PlanOrderComponent]
