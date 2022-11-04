@@ -1,0 +1,103 @@
+<div class="grid">
+	<div class="col-12 md:col-6">
+		<div class="card p-fluid">
+			<div class="field">
+                <label htmlFor="construction">Công trình</label>
+                <p-dropdown [options]="dropdownConstructionItems" optionLabel="name" ></p-dropdown>
+			</div>
+			<div class="field">
+				<label htmlFor="neededDate">Ngày cần</label>
+				<p-calendar inputId="basic" [showIcon]="true"></p-calendar>
+			</div>
+		</div>
+	</div>
+
+    <div class="col-12 md:col-6">
+		<div class="card p-fluid">
+			<div class="field">
+				<label htmlFor="pycNumber">Số PYC</label>
+                <p-dropdown [options]="dropdownPYCNumberItems" optionLabel="name" ></p-dropdown>
+            </div>
+            <div class="field">
+                <label htmlFor="requestStatus">Trạng thái</label>
+                <p-dropdown [options]="dropdownRequestStatusItems" optionLabel="name" ></p-dropdown>
+			</div>
+		</div>
+	</div>
+
+    <!-- <div class="col-12 md:col-4">
+		
+	</div> -->
+	
+    <div class="col-12">
+        <div class="flex justify-content-between flex-wrap card-container">
+            <div class="flex align-items-start justify-content-center m-2">
+                <button pButton pRipple type="button" label="Tạo mới" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/create-request-order']"></button>
+            </div>
+            
+            <div class="flex align-items-end flex-wrap justify-content-center">
+                <div class="m-2">
+                    <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center></button>
+                </div>
+                <div class="m-2">
+                    <p-confirmDialog #cd [style]="{width: '30vw'}">
+                        <ng-template pTemplate="header">
+                            <h2>Xác nhận xóa</h2>
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                            <button type="button" pButton icon="pi pi-times" label="Không" (click)="cd.reject()"></button>
+                            <button type="button" pButton icon="pi pi-check" label="Có" (click)="cd.accept()"></button>
+                        </ng-template>
+                    </p-confirmDialog>
+                    <p-button (click)="confirm2()" icon="pi pi-times" label="Xóa" m-2 px-5 py-3 justify-content-center></p-button>    
+                    <!-- <button pButton pRipple type="button" label="Xóa" class="p-button-raised p-button-warning" m-2 px-5 py-3 justify-content-center ></button> -->
+                    
+                </div>
+                
+     
+                
+            </div>
+        </div>
+    </div>
+
+	<div class="col-12">
+		<div class="card">
+			<div class="card">  
+                <p-table [value]="requestOrderRow">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="code">Mã công trình <p-sortIcon field="code"></p-sortIcon></th>
+                            <th pSortableColumn="name">Tên công trình <p-sortIcon field="name"></p-sortIcon></th>
+                            <th pSortableColumn="receiver">Người nhận hàng<p-sortIcon field="receiver"></p-sortIcon></th>
+                            <th pSortableColumn="place">Nơi giao hàng<p-sortIcon field="coSender"></p-sortIcon></th>
+                            <th pSortableColumn="place">Ngày cần<p-sortIcon field="place"></p-sortIcon></th>
+                            <th pSortableColumn="pycNum">Số PYC<p-sortIcon field="pycNum"></p-sortIcon></th>
+                            <th pSortableColumn="status">Trạng thái<p-sortIcon field="status"></p-sortIcon></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-requestOrderRow>
+                        <tr>
+                            <td>{{requestOrderRow.code}}</td>
+                            <td>{{requestOrderRow.name}}</td>
+                            <td>{{requestOrderRow.receiver}}</td>
+                            <td>{{requestOrderRow.place}}</td>
+                            <td>{{requestOrderRow.neededDate}}</td>
+                            <td>{{requestOrderRow.pycNum}}</td>
+                            <td>{{requestOrderRow.status}}</td>
+                            <td>{{requestOrderRow.isCheck}}</td>
+                            <td>{{requestOrderRow.isView}}</td>
+                            <td>{{requestOrderRow.isEdit}}</td>
+                            <td>{{requestOrderRow.isDelete}}</td>
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+		</div>
+	</div>
+</div>

@@ -17,7 +17,8 @@ import { AppFooterComponent } from './app.footer.component';
 import { AppConfigModule } from './config/config.module';
 import { AppSidebarComponent } from "./app.sidebar.component";
 import { AppLayoutComponent } from "./app.layout.component";
-
+import { TieredMenuModule } from "primeng/tieredmenu";
+import { ButtonModule } from "primeng/button";
 @NgModule({
     declarations: [
         AppMenuitemComponent,
@@ -26,6 +27,7 @@ import { AppLayoutComponent } from "./app.layout.component";
         AppMenuComponent,
         AppSidebarComponent,
         AppLayoutComponent,
+        AppTopBarComponent
     ],
     imports: [
         BrowserModule,
@@ -39,8 +41,11 @@ import { AppLayoutComponent } from "./app.layout.component";
         InputSwitchModule,
         RippleModule,
         RouterModule,
-        AppConfigModule
+        AppConfigModule,
+        TieredMenuModule,
+	    ButtonModule,
     ],
-    exports: [AppLayoutComponent]
+    exports: [AppLayoutComponent],
+    bootstrap: [AppTopBarComponent],
 })
 export class AppLayoutModule { }

@@ -19,8 +19,13 @@ import { RouterModule } from '@angular/router';
         { path: 'table', data: { breadcrumb: 'Table' }, loadChildren: () => import('./table/tabledemo.module').then(m => m.TableDemoModule) },
         { path: 'tree', data: { breadcrumb: 'Tree' }, loadChildren: () => import('./tree/treedemo.module').then(m => m.TreeDemoModule) },
         { path: 'menu', data: { breadcrumb: 'Menu' }, loadChildren: () => import('./menus/menus.module').then(m => m.MenusModule) },
+        
+        { path: 'request-order', data: { breadcrumb: 'Request Order' }, loadChildren: () => import('./request-order/request-order.module').then(m => m.RequestOrderModule) },
+        { path: 'create-request-order', data: { breadcrumb: 'Create Request Order' }, loadChildren: () => import('./create-request-order/create-request-order.module').then(m => m.CreateRequestOrderModule) },
+        { path: 'plan-order', data: { breadcrumb: 'Plan Order' }, loadChildren: () => import('./plan-order/plan-order.module').then(m => m.PlanOrderModule) },
+
         { path: '**', redirectTo: '/notfound' }
     ])],
     exports: [RouterModule]
 })
-export class UIkitRoutingModule { }
+export class MenuRoutingModule { }
