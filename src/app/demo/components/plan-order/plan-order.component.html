@@ -1,134 +1,383 @@
-
-<div class="grid">
-	<div class="col-12 md:col-6">
-		<div class="card p-fluid">
-			<div class="field">
-                <label htmlFor="construction">Công trình</label>
-                <p-dropdown [options]="dropdownConstructionItems" optionLabel="name" ></p-dropdown>
-			</div>
-			<div class="field">
-                <label htmlFor="requestStatus">Nhà cung cấp</label>
-                <p-dropdown [options]="dropdownProviderItems" optionLabel="name" ></p-dropdown>
-			</div>
-		</div>
-	</div>
-
-    <div class="col-12 md:col-6">
-		<div class="card p-fluid">
-			<div class="field">
-				<label htmlFor="pycNumber">Số PYC</label>
-                <p-dropdown [options]="dropdownPYCNumberItems" optionLabel="name" ></p-dropdown>
-            </div>
-		</div>
-	</div>
-	
-    <div class="col-12">
-        <div class="flex justify-content-between flex-wrap card-container">
-            <div class="flex align-items-start justify-content-center m-2">
-            </div>
-            
-            <div class="flex align-items-end flex-wrap justify-content-center">
-                <div class="m-2">
-                    <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center></button>
-                </div>
-                <div class="m-2">
-                    <button pButton pRipple type="button" label="Xóa" class="p-button-raised p-button-warning" m-2 px-5 py-3 justify-content-center ></button>
-                    
-                </div>
-                
-     
-                
-            </div>
-        </div>
-    </div>
-
-	<div class="col-12">
-		<div class="card">
-			<div class="card">  
-                <p-table [value]="suggestPlanOrdersList">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th pSortableColumn="code">Nhà cung cấp<p-sortIcon field="code"></p-sortIcon></th>
-                            <th pSortableColumn="name">Mã VT<p-sortIcon field="name"></p-sortIcon></th>
-                            <th pSortableColumn="receiver">Tên VT<p-sortIcon field="receiver"></p-sortIcon></th>
-                            <th pSortableColumn="place">Kích thước<p-sortIcon field="coSender"></p-sortIcon></th>
-                            <th pSortableColumn="place">Mô tả<p-sortIcon field="place"></p-sortIcon></th>
-                            <th pSortableColumn="pycNum">Qui cách<p-sortIcon field="pycNum"></p-sortIcon></th>
-                            <th pSortableColumn="status">Số lượng<p-sortIcon field="status"></p-sortIcon></th>
-                            <th pSortableColumn="status">Ghi chú<p-sortIcon field="status"></p-sortIcon></th>
-                            <th pSortableColumn="status">Công trình<p-sortIcon field="status"></p-sortIcon></th>
-                            <th pSortableColumn="status">Mã PYC<p-sortIcon field="status"></p-sortIcon></th>
-                            <th pSortableColumn="status">Ngày cần<p-sortIcon field="status"></p-sortIcon></th>
-                            <th></th>
-                            
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-suggestPlanOrdersList>
-                        <tr>
-                            <td>{{suggestPlanOrdersList.provider}}</td>
-                            <td>{{suggestPlanOrdersList.itemCode}}</td>
-                            <td>{{suggestPlanOrdersList.itemName}}</td>
-                            <td>{{suggestPlanOrdersList.size}}</td>
-                            <td>{{suggestPlanOrdersList.description}}</td>
-                            <td>{{suggestPlanOrdersList.style}}</td>
-                            <td>{{suggestPlanOrdersList.num}}</td>
-                            <td>{{suggestPlanOrdersList.note}}</td>
-                            <td>{{suggestPlanOrdersList.construction}}</td>
-                            <td>{{suggestPlanOrdersList.pycNumber}}</td>
-                            <td>{{suggestPlanOrdersList.neededDate}}</td>
-                            <td><p-checkbox [binary]="true" inputId="binary"></p-checkbox> 
-                                <label for="binary"></label></td>
-                                <!-- NOTE: missing out ngModel -->
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </div>
-		</div>
-            <div class="flex justify-content-between flex-wrap card-container">
-                <div class="flex align-items-start justify-content-center m-2">
-                </div>
-                
-                <div class="flex align-items-end flex-wrap justify-content-center">
-                    
-                    <div class="m-2">
-                        <!-- <button pButton pRipple type="button" label="Thêm mới kế hoạch mua" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center ></button> -->
-                    
-                        <p-confirmDialog #cd [style]="{width: '50vw'}">
-                            <ng-template pTemplate="header">
-                                <div class="grid">
-                                    <div class="col-12 md:col-6">
-                                        <div class="card p-fluid">
-                                            <div class="field">
-                                                <label htmlFor="construction">Công trình</label>
-                                                <p-dropdown [options]="dropdownConstructionItems" optionLabel="name" ></p-dropdown>
-                                            </div>
-                                            <div class="field">
-                                                <label htmlFor="requestStatus">Nhà cung cấp</label>
-                                                <p-dropdown [options]="dropdownProviderItems" optionLabel="name" ></p-dropdown>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-12 md:col-6">
-                                        <div class="card p-fluid">
-                                            <div class="field">
-                                                <label htmlFor="pycNumber">Số PYC</label>
-                                                <p-dropdown [options]="dropdownPYCNumberItems" optionLabel="name" ></p-dropdown>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ng-template>
-                            <ng-template pTemplate="footer">
-                                <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
-                                <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
-                            </ng-template>
-                        </p-confirmDialog>
-                            <!-- <button pButton pRipple type="button" label="Thêm mới kế hoạch mua" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center ></button> -->
-
-                        <p-button (click)="confirm2()" icon="pi pi-plus" label="Thêm mới kế hoạch mua" m-2 px-5 py-3 justify-content-center></p-button>    
+<div class="card">
+    <p-tabView>
+        <p-tabPanel header="DS gợi ý mua">
+            <div class="grid">
+                <div class="col-12 md:col-6">
+                    <div class="card p-fluid">
+                        <div class="field">
+                            <label htmlFor="construction">Công trình</label>
+                            <p-dropdown [options]="dropdownConstructionItems" optionLabel="name" ></p-dropdown>
+                        </div>
+                        <div class="field">
+                            <label htmlFor="requestStatus">Nhà cung cấp</label>
+                            <p-dropdown [options]="dropdownProviderItems" optionLabel="name" ></p-dropdown>
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-12 md:col-6">
+                    <div class="card p-fluid">
+                        <div class="field">
+                            <label htmlFor="pycNumber">Số PYC</label>
+                            <p-dropdown [options]="dropdownPYCNumberItems" optionLabel="name" ></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="flex justify-content-between flex-wrap card-container">
+                        <div class="flex align-items-start justify-content-center m-2">
+                        </div>
+                        
+                        <div class="flex align-items-end flex-wrap justify-content-center">
+                            <div class="m-2">
+                                <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center></button>
+                            </div>
+                            <div class="m-2">
+                                <p-confirmDialog #cd [style]="{width: '30vw'}">
+                                    <ng-template pTemplate="header">
+                                        <h2>Xác nhận xóa</h2>
+                                    </ng-template>
+                                    <ng-template pTemplate="footer">
+                                        <button type="button" pButton icon="pi pi-times" label="Không" (click)="cd.reject()"></button>
+                                        <button type="button" pButton icon="pi pi-check" label="Có" (click)="cd.accept()"></button>
+                                    </ng-template>
+                                </p-confirmDialog>
+                                <p-button (click)="confirm()" icon="pi pi-times" label="Xóa" m-2 px-5 py-3 justify-content-center></p-button>    
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card">  
+                            <p-table [value]="suggestPlanOrdersList">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th pSortableColumn="code">Nhà cung cấp<p-sortIcon field="code"></p-sortIcon></th>
+                                        <th pSortableColumn="name">Mã VT<p-sortIcon field="name"></p-sortIcon></th>
+                                        <th pSortableColumn="receiver">Tên VT<p-sortIcon field="receiver"></p-sortIcon></th>
+                                        <th pSortableColumn="place">Kích thước<p-sortIcon field="coSender"></p-sortIcon></th>
+                                        <th pSortableColumn="place">Mô tả<p-sortIcon field="place"></p-sortIcon></th>
+                                        <th pSortableColumn="pycNum">Qui cách<p-sortIcon field="pycNum"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Số lượng<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Ghi chú<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Công trình<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Mã PYC<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Ngày cần<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th></th>
+                                        
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-suggestPlanOrdersList>
+                                    <tr>
+                                        <td>{{suggestPlanOrdersList.provider}}</td>
+                                        <td>{{suggestPlanOrdersList.itemCode}}</td>
+                                        <td>{{suggestPlanOrdersList.itemName}}</td>
+                                        <td>{{suggestPlanOrdersList.size}}</td>
+                                        <td>{{suggestPlanOrdersList.description}}</td>
+                                        <td>{{suggestPlanOrdersList.style}}</td>
+                                        <td>{{suggestPlanOrdersList.num}}</td>
+                                        <td>{{suggestPlanOrdersList.note}}</td>
+                                        <td>{{suggestPlanOrdersList.construction}}</td>
+                                        <td>{{suggestPlanOrdersList.pycNumber}}</td>
+                                        <td>{{suggestPlanOrdersList.neededDate}}</td>
+                                        <td><p-checkbox [binary]="true" inputId="binary"></p-checkbox> 
+                                            <label for="binary"></label></td>
+                                            <!-- NOTE: missing out ngModel -->
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                        <div class="flex justify-content-between flex-wrap card-container">
+                            <div class="flex align-items-start justify-content-center m-2">
+                            </div>
+                            
+                            <div class="flex align-items-end flex-wrap justify-content-center">
+                                
+                                <div >
+                                    <p-button (click)="showDialog()" icon="pi pi-plus" label="Thêm mới kế hoạch mua" m-2 px-5 py-3 justify-content-center></p-button>
+                                    <p-dialog header="Thêm mới kế hoạch mua" [(visible)]="displayBasic" [style]="{width: '90%', height: '90%'}">
+                                        <div class="grid">
+                                            <div class="col-12 md:col-6">
+                                                <div class="card p-fluid">
+                                                    <div class="field">
+                                                        <label htmlFor="construction">Ngày giao hàng </label>
+                                                        <p-calendar inputId="basic" [showIcon]="true"></p-calendar>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label htmlFor="requestStatus">Ngày thanh toán</label>
+                                                        <p-calendar inputId="basic" [showIcon]="true"></p-calendar>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="col-12 md:col-6">
+                                                <div class="card p-fluid">
+                                                    <div class="field">
+                                                        <label htmlFor="pycNumber">Ghi chú</label>
+                                                        <input pInputText id="deliveryPlace" type="text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card">  
+                                                    <p-table [value]="createPlanOrdersList">
+                                                        <ng-template pTemplate="header">
+                                                            <tr>
+                                                                <th pSortableColumn="code">Tên VT<p-sortIcon field="code"></p-sortIcon></th>
+                                                                <th pSortableColumn="name">Kích thước<p-sortIcon field="name"></p-sortIcon></th>
+                                                                <th pSortableColumn="receiver">Mô tả<p-sortIcon field="receiver"></p-sortIcon></th>
+                                                                <th pSortableColumn="place">Qui cách<p-sortIcon field="coSender"></p-sortIcon></th>
+                                                                <th pSortableColumn="place">Kích thước<p-sortIcon field="coSender"></p-sortIcon></th>
+                                                                <th pSortableColumn="place">DVT<p-sortIcon field="place"></p-sortIcon></th>
+                                                                <th pSortableColumn="pycNum">Ngày cần<p-sortIcon field="pycNum"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Số lượng<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">SL tồn kho<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Số lượng thực muah<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Nhà cung cấp<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Mã VT<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th></th>
+                                                                
+                                                            </tr>
+                                                        </ng-template>
+                                                        <ng-template pTemplate="body" let-createPlanOrdersList>
+                                                            <tr>
+                                                                <td>{{createPlanOrdersList.itemName}}</td>
+                                                                <td>{{createPlanOrdersList.size}}</td>
+                                                                <td>{{createPlanOrdersList.description}}</td>
+                                                                <td>{{createPlanOrdersList.size}}</td>
+                                                                <td>{{createPlanOrdersList.style}}</td>
+                                                                <td>{{createPlanOrdersList.dvt}}</td>
+                                                                <td>{{createPlanOrdersList.neededDate}}</td>
+                                                                <td>{{createPlanOrdersList.num}}</td>
+                                                                <td>{{createPlanOrdersList.numStorage}}</td>
+                                                                <td>{{createPlanOrdersList.numRealBuy}}</td>
+                                                                <td>{{createPlanOrdersList.provider}}</td>
+                                                                <td>{{createPlanOrdersList.codeItem}}</td>
+                                                                
+                                                                    <!-- NOTE: missing out ngModel -->
+                                                            </tr>
+                                                        </ng-template>
+                                                    </p-table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ng-template pTemplate="footer">
+                                            <p-button icon="pi pi-check" (click)="displayBasic=false" label="Lưu kế hoạch mua" styleClass="p-button-text" ></p-button>
+                                        </ng-template>
+                                    </p-dialog>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
-	</div>
+        </p-tabPanel>
+
+        
+
+        <p-tabPanel header="DS kế hoạch mua">
+            <div class="grid">
+                <div class="col-12 md:col-4">
+                    <div class="card p-fluid">
+                        <div class="field">
+                            <label htmlFor="construction">Công trình</label>
+                            <p-dropdown [options]="dropdownConstructionItems" optionLabel="name" ></p-dropdown>
+                        </div>
+                        <div class="field">
+                            <label htmlFor="provider">Nhà cung cấp</label>
+                            <p-dropdown [options]="dropdownProviderItems" optionLabel="name" ></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 md:col-4">
+                    <div class="card p-fluid">
+                        <div class="field">
+                            <label htmlFor="diliveryDate">Ngày giao hàng</label>
+				            <p-calendar inputId="diliveryDate" [showIcon]="true"></p-calendar>
+                        </div>
+                        <div class="field">
+                            <label htmlFor="paidDate">Ngày thanh toán</label>
+				            <p-calendar inputId="paidDate" [showIcon]="true"></p-calendar>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="card p-fluid">
+                        <div class="field">
+                            <label htmlFor="status">Trạng thái</label>
+                            <p-dropdown [options]="dropdownRequestStatusItems" optionLabel="name" ></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="flex justify-content-between flex-wrap card-container">
+                        <div class="flex align-items-start justify-content-center m-2">
+                        </div>
+                        
+                        <div class="flex align-items-end flex-wrap justify-content-center">
+                            <div class="m-2">
+                                <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center></button>
+                            </div>
+                            <div class="m-2">
+                                <p-confirmDialog #cd [style]="{width: '30vw'}">
+                                    <ng-template pTemplate="header">
+                                        <h2>Xác nhận xóa</h2>
+                                    </ng-template>
+                                    <ng-template pTemplate="footer">
+                                        <button type="button" pButton icon="pi pi-times" label="Không" (click)="cd.reject()"></button>
+                                        <button type="button" pButton icon="pi pi-check" label="Có" (click)="cd.accept()"></button>
+                                    </ng-template>
+                                </p-confirmDialog>
+                                <p-button (click)="confirm()" icon="pi pi-times" label="Xóa" m-2 px-5 py-3 justify-content-center></p-button>    
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card">  
+                            <p-table [value]="suggestPlanOrdersList">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th pSortableColumn="code">Nhà cung cấp<p-sortIcon field="code"></p-sortIcon></th>
+                                        <th pSortableColumn="name">Mã VT<p-sortIcon field="name"></p-sortIcon></th>
+                                        <th pSortableColumn="receiver">Tên VT<p-sortIcon field="receiver"></p-sortIcon></th>
+                                        <th pSortableColumn="place">Kích thước<p-sortIcon field="coSender"></p-sortIcon></th>
+                                        <th pSortableColumn="place">Mô tả<p-sortIcon field="place"></p-sortIcon></th>
+                                        <th pSortableColumn="pycNum">Qui cách<p-sortIcon field="pycNum"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Số lượng<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Ghi chú<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Công trình<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Mã PYC<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Ngày cần<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th></th>
+                                        
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-suggestPlanOrdersList>
+                                    <tr>
+                                        <td>{{suggestPlanOrdersList.provider}}</td>
+                                        <td>{{suggestPlanOrdersList.itemCode}}</td>
+                                        <td>{{suggestPlanOrdersList.itemName}}</td>
+                                        <td>{{suggestPlanOrdersList.size}}</td>
+                                        <td>{{suggestPlanOrdersList.description}}</td>
+                                        <td>{{suggestPlanOrdersList.style}}</td>
+                                        <td>{{suggestPlanOrdersList.num}}</td>
+                                        <td>{{suggestPlanOrdersList.note}}</td>
+                                        <td>{{suggestPlanOrdersList.construction}}</td>
+                                        <td>{{suggestPlanOrdersList.pycNumber}}</td>
+                                        <td>{{suggestPlanOrdersList.neededDate}}</td>
+                                        <td><p-checkbox [binary]="true" inputId="binary"></p-checkbox> 
+                                            <label for="binary"></label></td>
+                                            <!-- NOTE: missing out ngModel -->
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                        <div class="flex justify-content-between flex-wrap card-container">
+                            <div class="flex align-items-start justify-content-center m-2">
+                            </div>
+                            
+                            <div class="flex align-items-end flex-wrap justify-content-center">
+                                
+                                <div >
+                                    <p-button (click)="showDialog()" icon="pi pi-plus" label="Cập nhật kế hoạch mua" m-2 px-5 py-3 justify-content-center></p-button>
+                                    <p-dialog header="Cập nhật kế hoạch mua" [(visible)]="displayBasic" [style]="{width: '90%', height: '90%'}">
+                                        <div class="grid">
+                                            <div class="col-12 md:col-6">
+                                                <div class="card p-fluid">
+                                                    <div class="field">
+                                                        <label htmlFor="construction">Ngày giao hàng </label>
+                                                        <p-calendar inputId="basic" [showIcon]="true"></p-calendar>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label htmlFor="requestStatus">Ngày thanh toán</label>
+                                                        <p-calendar inputId="basic" [showIcon]="true"></p-calendar>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="col-12 md:col-6">
+                                                <div class="card p-fluid">
+                                                    <div class="field">
+                                                        <label htmlFor="pycNumber">Ghi chú</label>
+                                                        <input pInputText id="deliveryPlace" type="text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card">  
+                                                    <p-table [value]="createPlanOrdersList">
+                                                        <ng-template pTemplate="header">
+                                                            <tr>
+                                                                <th pSortableColumn="code">Tên VT<p-sortIcon field="code"></p-sortIcon></th>
+                                                                <th pSortableColumn="name">Kích thước<p-sortIcon field="name"></p-sortIcon></th>
+                                                                <th pSortableColumn="receiver">Mô tả<p-sortIcon field="receiver"></p-sortIcon></th>
+                                                                <th pSortableColumn="place">Qui cách<p-sortIcon field="coSender"></p-sortIcon></th>
+                                                                <th pSortableColumn="place">Kích thước<p-sortIcon field="coSender"></p-sortIcon></th>
+                                                                <th pSortableColumn="place">DVT<p-sortIcon field="place"></p-sortIcon></th>
+                                                                <th pSortableColumn="pycNum">Ngày cần<p-sortIcon field="pycNum"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Số lượng<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">SL tồn kho<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Số lượng thực muah<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Nhà cung cấp<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th pSortableColumn="status">Mã VT<p-sortIcon field="status"></p-sortIcon></th>
+                                                                <th></th>
+                                                                
+                                                            </tr>
+                                                        </ng-template>
+                                                        <ng-template pTemplate="body" let-createPlanOrdersList>
+                                                            <tr>
+                                                                <td>{{createPlanOrdersList.itemName}}</td>
+                                                                <td>{{createPlanOrdersList.size}}</td>
+                                                                <td>{{createPlanOrdersList.description}}</td>
+                                                                <td>{{createPlanOrdersList.size}}</td>
+                                                                <td>{{createPlanOrdersList.style}}</td>
+                                                                <td>{{createPlanOrdersList.dvt}}</td>
+                                                                <td>{{createPlanOrdersList.neededDate}}</td>
+                                                                <td>{{createPlanOrdersList.num}}</td>
+                                                                <td>{{createPlanOrdersList.numStorage}}</td>
+                                                                <td>{{createPlanOrdersList.numRealBuy}}</td>
+                                                                <td>{{createPlanOrdersList.provider}}</td>
+                                                                <td>{{createPlanOrdersList.codeItem}}</td>
+                                                                
+                                                                    <!-- NOTE: missing out ngModel -->
+                                                            </tr>
+                                                        </ng-template>
+                                                    </p-table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ng-template pTemplate="footer">
+                                            <p-button icon="pi pi-check" (click)="displayBasic=false" label="Cập nhật kế hoạch mua" styleClass="p-button-text" ></p-button>
+                                        </ng-template>
+                                    </p-dialog>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+        </p-tabPanel>
+    </p-tabView>
 </div>
+    
