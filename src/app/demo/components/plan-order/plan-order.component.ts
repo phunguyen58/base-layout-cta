@@ -50,7 +50,6 @@ export class PlanOrderComponent {
     {itemName: "Chỉ dán cạnh", size: "21mm", description: "Chỉ la/Me PL-06 Rộng 21mm", style: "Đồng màu với mã ván", dvt: "md", neededDate: "1/11/2022", num: "40", numStorage: "30", numRealBuy: "10", provider: "An Cường", codeItem: "101T_21mm"},
     {itemName: "Chỉ dán cạnh", size: "21mm", description: "Chỉ la/Me PL-06 Rộng 21mm", style: "Đồng màu với mã ván", dvt: "md", neededDate: "1/11/2022", num: "40", numStorage: "30", numRealBuy: "10", provider: "An Cường", codeItem: "101T_21mm"},
     {itemName: "Chỉ dán cạnh", size: "21mm", description: "Chỉ la/Me PL-06 Rộng 21mm", style: "Đồng màu với mã ván", dvt: "md", neededDate: "1/11/2022", num: "40", numStorage: "30", numRealBuy: "10", provider: "An Cường", codeItem: "101T_21mm"},
-
   ]
 
   showModalDialog() {
