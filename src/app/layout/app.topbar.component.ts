@@ -24,12 +24,10 @@ export class AppTopBarComponent {
         {
                 label: 'Manage',
                 icon: 'pi pi-user',
-                // url: 'http://angular.io'
             },
             {
                 label: 'Sign out',
                 icon: 'pi pi-sign-out',
-                // routerLink: '/fileupload'
             }
         
     ];

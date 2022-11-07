@@ -1,0 +1,108 @@
+<div class="card">
+    <p-tabView>
+        <p-tabPanel header="Người dùng">
+            <div class="grid">
+                <div class="col-12">
+                <p-table [value]="userManagement">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="username">Username<p-sortIcon field="name"></p-sortIcon></th>
+                            <th pSortableColumn="password">Password<p-sortIcon field="size"></p-sortIcon></th>
+                            <th pSortableColumn="fullName">Họ tên<p-sortIcon field="size"></p-sortIcon></th>
+                            <th pSortableColumn="email">Nickname<p-sortIcon field="coSender"></p-sortIcon></th>
+                            <th pSortableColumn="email">Email<p-sortIcon field="coSender"></p-sortIcon></th>
+                            <th pSortableColumn="phoneNumber">Sđt<p-sortIcon field="coSender"></p-sortIcon></th>
+                            <th pSortableColumn="authorize">Phân quyền<p-sortIcon field="coSender"></p-sortIcon></th>
+                            <th pSortableColumn="status">Trạng thái<p-sortIcon field="coSender"></p-sortIcon></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-userManagement>
+                        <tr>
+                            <td>{{userManagement.username}}</td>
+                            <td>{{userManagement.password}}</td>  
+                            <td>{{userManagement.fullName}}</td>
+                            <td>{{userManagement.nickName}}</td>
+                            <td>{{userManagement.email}}</td>
+                            <td>{{userManagement.phoneNumber}}</td>
+                            <td>{{userManagement.authorize}}</td>
+                            <td>{{userManagement.status}}</td>
+                            <td><p-button label="{{userManagement.isEdit}}" styleClass="p-button-link"></p-button></td>
+                            <td><p-button label="{{userManagement.isDelete}}" styleClass="p-button-link" [routerLink]="['/stock-delivering-view']"></p-button></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Công trình">
+            <div class="grid">
+                <div class="col-12">
+                    <p-table [value]="constructions">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th pSortableColumn="constructionId">Mã công trình<p-sortIcon field="name"></p-sortIcon></th>
+                                <th pSortableColumn="constructionName">Tên công trình<p-sortIcon field="size"></p-sortIcon></th>
+                                <th pSortableColumn="address">Địa chỉ thi công<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th pSortableColumn="oganizationName">Tên tổ chức<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th pSortableColumn="information">Thông tin xuất hóa đơn (email, mst, địa chỉ)<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th pSortableColumn="representative">Người dại diện<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th pSortableColumn="phoneNumber">Sđt<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th pSortableColumn="status">Trạng thái<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-constructions>
+                            <tr>
+                                <td>{{constructions.constructionId}}</td>
+                                <td>{{constructions.constructionName}}</td>  
+                                <td>{{constructions.address}}</td>
+                                <td>{{constructions.oganizationName}}</td>
+                                <td>{{constructions.information}}</td>
+                                <td>{{constructions.representative}}</td>
+                                <td>{{constructions.phoneNumber}}</td>
+                                <td>{{constructions.status}}</td>
+                                <td><p-button label="{{constructions.isEdit}}" styleClass="p-button-link"></p-button></td>
+                                <td><p-button label="{{constructions.isDelete}}" styleClass="p-button-link" [routerLink]="['/stock-delivering-view']"></p-button></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Nhà cung cấp">
+            <div class="grid">
+                <div class="col-12">
+                    <p-table [value]="providers">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th pSortableColumn="providerName">Tên nhà cung cấp<p-sortIcon field="name"></p-sortIcon></th>
+                                <th pSortableColumn="contactPerson">Người liên hệ<p-sortIcon field="size"></p-sortIcon></th>
+                                <th pSortableColumn="phoneNumber">Sđt<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th pSortableColumn="email">Email<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-providers>
+                            <tr>
+                                <td>{{providers.providerName}}</td>
+                                <td>{{providers.contactPerson}}</td>  
+                                <td>{{providers.phoneNumber}}</td>
+                                <td>{{providers.email}}</td>
+                                <td><p-button label="{{providers.isEdit}}" styleClass="p-button-link"></p-button></td>
+                                <td><p-button label="{{providers.isDelete}}" styleClass="p-button-link" [routerLink]="['/stock-delivering-view']"></p-button></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </p-tabPanel>
+        <!-- <p-tabPanel header="Thông báo">
+            <div class="grid">
+            </div>
+        </p-tabPanel> -->
+    </p-tabView>
+</div>

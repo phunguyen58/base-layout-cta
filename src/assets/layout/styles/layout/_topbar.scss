@@ -79,6 +79,8 @@
         padding: 0;
         list-style: none;
         display: flex;
+        /*needed fix later*/
+        align-items: flex-end;
 
         .layout-topbar-button {
             margin-left: 1rem;
