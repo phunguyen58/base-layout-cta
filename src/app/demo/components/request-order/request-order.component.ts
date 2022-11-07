@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
+import {ConfirmationService, MessageService} from 'primeng/api';
 import {Message} from 'primeng/api';
 
 
@@ -38,7 +38,7 @@ export class RequestOrderComponent {
     
   ];
 
-  confirm2() {
+  confirm() {
     this.confirmationService.confirm({
         message: 'Bạn có chắc chắn xóa phiếu yêu cầu đặt mua vật tư này?',
         header: 'Delete Confirmation',

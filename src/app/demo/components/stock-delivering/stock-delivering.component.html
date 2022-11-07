@@ -1,0 +1,91 @@
+<div class="card">
+    <div class="grid">
+        <div class="col-12 md:col-6">
+            <div class="p-fluid">
+                <div class="field">
+                    <label htmlFor="date">Ngày xuất</label>
+                    <p-calendar inputId="basic" [showIcon]="true"></p-calendar>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12 md:col-6">
+            <div class="p-fluid">
+                <div class="field">
+                    <label htmlFor="date">Trạng thái</label>
+                    <p-dropdown [options]="dropdownRequestStatusItems" optionLabel="name" ></p-dropdown>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12">
+            <div class="p-fluid">
+                <div class="field">
+                    <label htmlFor="note">Ghi chú</label>
+                    <input pInputText id="note" type="text"/>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12">
+            <div class="flex justify-content-between flex-wrap card-container">
+                <div class="flex align-items-start justify-content-center m-2">
+                    <button pButton pRipple type="button" label="Tạo mới đề nghị xuất kho" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/create-stock-delivering']"></button>
+                </div>
+                
+                <div class="flex align-items-end flex-wrap justify-content-center">
+                    <div class="m-2">
+                        <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center></button>
+                    </div>
+                    <div class="m-2">
+                        <p-confirmDialog #cd [style]="{width: '30vw'}">
+                            <ng-template pTemplate="header">
+                                <h2>Xác nhận xóa</h2>
+                            </ng-template>
+                            <ng-template pTemplate="footer">
+                                <button type="button" pButton icon="pi pi-times" label="Không" (click)="cd.reject()"></button>
+                                <button type="button" pButton icon="pi pi-check" label="Có" (click)="cd.accept()"></button>
+                            </ng-template>
+                        </p-confirmDialog>
+                        <p-button (click)="confirm()" icon="pi pi-times" label="Xóa" m-2 px-5 py-3 justify-content-center></p-button>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12">
+                <div class="card">  
+                    <p-table [value]="deliveringSuggestion">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th pSortableColumn="dateDelivering">Ngày xuất<p-sortIcon field="name"></p-sortIcon></th>
+                                <th pSortableColumn="note">Ghi chú<p-sortIcon field="size"></p-sortIcon></th>
+                                <th pSortableColumn="status">Trạng thái<p-sortIcon field="coSender"></p-sortIcon></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-deliveringSuggestion>
+                            <tr>
+                                <td>{{deliveringSuggestion.dateDelivering}}</td>
+                                <td>{{deliveringSuggestion.note}}</td>  
+                                <td>{{deliveringSuggestion.status}}</td>
+                                <td><p-button label="{{deliveringSuggestion.isCheck}}" styleClass="p-button-link"></p-button></td>
+                                <td><p-button label="{{deliveringSuggestion.isView}}" styleClass="p-button-link" [routerLink]="['/stock-delivering-view']"></p-button></td>
+                                <td><p-button label="{{deliveringSuggestion.isChange}}" styleClass="p-button-link"></p-button></td>
+                                <td><p-button label="{{deliveringSuggestion.isDelete}}" styleClass="p-button-link"></p-button></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            <div class="flex justify-content-between flex-wrap card-container">
+                <div class="flex align-items-start justify-content-center m-2">
+                    <button pButton pRipple type="button" label="Lưu phiếu yêu cầu" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/create-request-order']"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

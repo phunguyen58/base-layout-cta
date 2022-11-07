@@ -23,6 +23,9 @@ import { RouterModule } from '@angular/router';
         { path: 'request-order', data: { breadcrumb: 'Request Order' }, loadChildren: () => import('./request-order/request-order.module').then(m => m.RequestOrderModule) },
         { path: 'create-request-order', data: { breadcrumb: 'Create Request Order' }, loadChildren: () => import('./create-request-order/create-request-order.module').then(m => m.CreateRequestOrderModule) },
         { path: 'plan-order', data: { breadcrumb: 'Plan Order' }, loadChildren: () => import('./plan-order/plan-order.module').then(m => m.PlanOrderModule) },
+        { path: 'stock-delivering', data: { breadcrumb: 'Stock Delivering' }, loadChildren: () => import('./stock-delivering/stock-delivering.module').then(m => m.StockDeliveringModule) },
+        { path: 'create-stock-delivering', data: { breadcrumb: 'Create Stock Delivering' }, loadChildren: () => import('./create-stock-delivering/create-stock-delivering.module').then(m => m.CreateStockDeliveringModule) },
+        { path: 'stock-delivering-view', data: { breadcrumb: 'Stock Delivering View' }, loadChildren: () => import('./stock-delivering-view/stock-delivering-view.module').then(m => m.StockDeliveringViewModule) },
 
         { path: '**', redirectTo: '/notfound' }
     ])],

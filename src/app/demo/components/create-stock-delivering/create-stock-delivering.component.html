@@ -1,0 +1,62 @@
+<div class="card">
+    <div class="grid">
+        <div class="col-12 md:col-6">
+            <div class="p-fluid">
+                <div class="field">
+                    <label htmlFor="date">Ngày</label>
+                    <p-calendar inputId="basic" [showIcon]="true"></p-calendar>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12 md:col-6">
+            <div class="p-fluid">
+                <div class="field">
+                    <label htmlFor="note">Ghi chú</label>
+                    <input pInputText id="note" type="text"/>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-12">
+            <div class="card">
+                    <p-table [value]="createStockDelivering">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <tr>
+                                    <th pSortableColumn="name">Tên VT<p-sortIcon field="receiver"></p-sortIcon></th>
+                                    <th pSortableColumn="size">Kích thước<p-sortIcon field="coSender"></p-sortIcon></th>
+                                    <th pSortableColumn="description">Mô tả<p-sortIcon field="place"></p-sortIcon></th>
+                                    <th pSortableColumn="style">Qui cách<p-sortIcon field="pycNum"></p-sortIcon></th>
+                                    <th pSortableColumn="dvt">DVT<p-sortIcon field="pycNum"></p-sortIcon></th>
+                                    <th pSortableColumn="numProduce">Số lượng<p-sortIcon field="status"></p-sortIcon></th>
+                                    <th pSortableColumn="provider">Nhà cung cấp<p-sortIcon field="status"></p-sortIcon></th>
+                                    <th pSortableColumn="codeItem">Mã VT<p-sortIcon field="status"></p-sortIcon></th>
+                                    <th></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-createStockDelivering>
+                            <tr>
+                                <td>{{createStockDelivering.itemName}}</td>
+                                <td>{{createStockDelivering.size}}</td>
+                                <td>{{createStockDelivering.description}}</td>
+                                <td>{{createStockDelivering.style}}</td>
+                                <td>{{createStockDelivering.dvt}}</td>
+                                <td>{{createStockDelivering.numProduce}}</td>
+                                <td>{{createStockDelivering.provider}}</td>
+                                <td>{{createStockDelivering.codeItem}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+            </div>
+            <div class="flex justify-content-between flex-wrap card-container">
+                <div class="flex align-items-start justify-content-center m-2">
+                </div>
+                
+                <div class="flex align-items-end justify-content-center m-2">
+                    <button pButton pRipple type="button" label="Thêm" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/']"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
