@@ -23,7 +23,7 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Xuất kho', icon: 'pi pi-caret-left', routerLink: ['/stock-delivering'] },
                     { label: 'Danh sách vật tư dùng chung', icon: 'pi pi-fw pi-box', routerLink: ['/share-items'] },
                     { label: 'Danh sách vật tư theo công trình', icon: 'pi pi-fw pi-table', routerLink: ['construction-items'] },
-                    { label: 'Quản lý', icon: 'pi pi-fw pi-list', routerLink: ['/uikit/list'] },
+                    { label: 'Quản lý', icon: 'pi pi-fw pi-list', routerLink: ['management'] },
                 ]
             }
         ];
