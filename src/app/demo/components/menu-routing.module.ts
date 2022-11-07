@@ -26,6 +26,8 @@ import { RouterModule } from '@angular/router';
         { path: 'stock-delivering', data: { breadcrumb: 'Stock Delivering' }, loadChildren: () => import('./stock-delivering/stock-delivering.module').then(m => m.StockDeliveringModule) },
         { path: 'create-stock-delivering', data: { breadcrumb: 'Create Stock Delivering' }, loadChildren: () => import('./create-stock-delivering/create-stock-delivering.module').then(m => m.CreateStockDeliveringModule) },
         { path: 'stock-delivering-view', data: { breadcrumb: 'Stock Delivering View' }, loadChildren: () => import('./stock-delivering-view/stock-delivering-view.module').then(m => m.StockDeliveringViewModule) },
+        { path: 'share-items', data: { breadcrumb: 'Share Items' }, loadChildren: () => import('./share-items/share-items.module').then(m => m.ShareItemsModule) },
+        { path: 'construction-items', data: { breadcrumb: 'Share Items' }, loadChildren: () => import('./construction-items/construction-items.module').then(m => m.ConstructionItemsModule) },
 
         { path: '**', redirectTo: '/notfound' }
     ])],

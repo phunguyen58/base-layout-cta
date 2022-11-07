@@ -3,12 +3,12 @@
         <div class="col-12 md:col-6">
             <div class="p-fluid">
                 <div class="field">
-                    <label htmlFor="construction">Nhà cung cấp</label>
-                    <p-dropdown [options]="dropdownProviderItems" optionLabel="name" ></p-dropdown>
+                    <label htmlFor="construction">Công trình</label>
+                    <p-dropdown [options]="dropdownConstructionItems" optionLabel="name" ></p-dropdown>
                 </div>
                 <div class="field">
-                    <label htmlFor="neededDate">Mã VT</label>
-                    <input pInputText id="note" type="text"/>
+                    <label htmlFor="status">Trạng thái</label>
+                    <p-dropdown [options]="dropdownRequestStatusItems" optionLabel="name" ></p-dropdown>
                 </div>
             </div>
         </div>
@@ -16,12 +16,12 @@
         <div class="col-12 md:col-6">
             <div class="p-fluid">
                 <div class="field">
-                    <label htmlFor="pycNumber">Mô tả</label>
-                    <input pInputText id="note" type="text"/>
+                    <label htmlFor="Mã VT">Mô tả</label>
+                    <input pInputText id="description" type="text"/>
                 </div>
                 <div class="field">
                     <label htmlFor="requestStatus">Tên VT</label>
-                    <input pInputText id="note" type="text"/>
+                    <input pInputText id="nameItem" type="text"/>
                 </div>
             </div>
         </div>
@@ -29,7 +29,6 @@
         <div class="col-12">
             <div class="flex justify-content-between flex-wrap card-container">
                 <div class="flex align-items-start justify-content-center m-2">
-                    <button pButton pRipple type="button" label="Tạo mới" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/create-request-order']"></button>
                 </div>
                 
                 <div class="flex align-items-end flex-wrap justify-content-center">
@@ -51,7 +50,7 @@
                 </div>
                 <div class="col-12">
                     <div class="card">  
-                        <p-table [value]="shareItemsList">
+                        <p-table [value]="constructionItemsList">
                             <ng-template pTemplate="header">
                                 <tr>
                                     <th pSortableColumn="provider">Nhà cung cấp<p-sortIcon field="code"></p-sortIcon></th>
@@ -61,43 +60,32 @@
                                     <th pSortableColumn="description">Mô tả<p-sortIcon field="place"></p-sortIcon></th>
                                     <th pSortableColumn="dvt">DVT<p-sortIcon field="pycNum"></p-sortIcon></th>
                                     <th pSortableColumn="style">Qui cách<p-sortIcon field="pycNum"></p-sortIcon></th>
-                                    <th pSortableColumn="note">Mục đích sử dụng/Ghi chú<p-sortIcon field="status"></p-sortIcon></th>
-                                    <th pSortableColumn="minQuantity">SL min<p-sortIcon field="status"></p-sortIcon></th>
-                                    <th pSortableColumn="maxQuantity">SL max<p-sortIcon field="status"></p-sortIcon></th>
-                                    <th pSortableColumn="stockQuantity">SL tồn kho<p-sortIcon field="status"></p-sortIcon></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
                                     
                                 </tr>
                             </ng-template>
-                            <ng-template pTemplate="body" let-shareItemsList>
+                            <ng-template pTemplate="body" let-constructionItemsList>
                                 <tr>
-                                    <td>{{shareItemsList.provider}}</td>
-                                    <td>{{shareItemsList.codeItem}}</td>
-                                    <td>{{shareItemsList.nameItem}}</td>
-                                    <td>{{shareItemsList.size}}</td>
-                                    <td>{{shareItemsList.description}}</td>
-                                    <td>{{shareItemsList.dvt}}</td>
-                                    <td>{{shareItemsList.style}}</td>
-                                    <td>{{shareItemsList.note}}</td>
-                                    <td>{{shareItemsList.minQuantity}}</td>
-                                    <td>{{shareItemsList.maxQuantity}}</td>
-                                    <td>{{shareItemsList.stockQuantity}}</td>
+                                    <td>{{constructionItemsList.provider}}</td>
+                                    <td>{{constructionItemsList.codeItem}}</td>
+                                    <td>{{constructionItemsList.nameItem}}</td>
+                                    <td>{{constructionItemsList.size}}</td>
+                                    <td>{{constructionItemsList.description}}</td>
+                                    <td>{{constructionItemsList.dvt}}</td>
+                                    <td>{{constructionItemsList.style}}</td>
                                     <td><p-checkbox [binary]="true" inputId="binary"></p-checkbox> 
                                         <label for="binary"></label></td>
-                                        <!-- NOTE: missing out ngModel -->
-                                    <td><p-button label="{{shareItemsList.isEdit}}" styleClass="p-button-link"></p-button></td>
-                                    <td><p-button label="{{shareItemsList.isDelete}}" styleClass="p-button-link"></p-button></td>
+                                    <td><p-button label="{{constructionItemsList.isEdit}}" styleClass="p-button-link"></p-button></td>
+                                    <td><p-button label="{{constructionItemsList.isDelete}}" styleClass="p-button-link"></p-button></td>
                                 </tr>
                             </ng-template>
                         </p-table>
                     </div>
             </div>
-            </div>
         </div>
-    
-        
+    </div>
     </div>
     
 </div>
