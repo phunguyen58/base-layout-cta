@@ -1,24 +1,26 @@
-<div class="card">
+<!-- <div class="card">
     <div class="grid">
-        <div class="col-12 md:col-6">
+        <div class="col-12 md:col-4">
             <div class="p-fluid">
                 <div class="field">
                     <label htmlFor="construction">Công trình</label>
                     <p-dropdown [options]="dropdownConstructionItems" optionLabel="name" ></p-dropdown>
                 </div>
-                <div class="field">
-                    <label htmlFor="neededDate">Ngày cần</label>
-                    <p-calendar inputId="basic" [showIcon]="true"></p-calendar>
-                </div>
+                
             </div>
         </div>
     
-        <div class="col-12 md:col-6">
+        <div class="col-12 md:col-4">
             <div class="p-fluid">
                 <div class="field">
                     <label htmlFor="pycNumber">Số PYC</label>
                     <p-dropdown [options]="dropdownPYCNumberItems" optionLabel="name" ></p-dropdown>
                 </div>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+            <div class="p-fluid">
                 <div class="field">
                     <label htmlFor="requestStatus">Trạng thái</label>
                     <p-dropdown [options]="dropdownRequestStatusItems" optionLabel="name" ></p-dropdown>
@@ -87,16 +89,113 @@
                                 <td><p-button label="{{requestOrderRow.isView}}" styleClass="p-button-link"></p-button></td>
                                 <td><p-button label="{{requestOrderRow.isEdit}}" styleClass="p-button-link"></p-button></td>
                                 <td><p-button label="{{requestOrderRow.isDelete}}" styleClass="p-button-link"></p-button></td>
-                                <!-- <td>{{requestOrderRow.isCheck}}</td>
-                                <td>{{requestOrderRow.isView}}</td>
-                                <td>{{requestOrderRow.isEdit}}</td>
-                                <td>{{requestOrderRow.isDelete}}</td> -->
-    
                             </tr>
                         </ng-template>
                     </p-table>
                 </div>
         </div>
     </div>
+</div> -->
+
+    <div class="col-12">
+        <div class="flex justify-content-between flex-wrap card-container">
+            <div class="flex align-items-start justify-content-center">
+                <div class="m-2">
+                    <button pButton pRipple type="button" label="Tạo mới" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/create-request-order']"></button>
+                </div>
+                <div class="m-2">
+                    <button pButton pRipple type="button" label="Duyệt" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/']"></button>
+                </div>
+            </div>
+            
+            <div class="flex align-items-end flex-wrap justify-content-center">
+                <div class="m-2">
+                    <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised p-button-info" m-2 px-5 py-3 justify-content-center></button>
+                </div>
+                <div class="m-2">
+                    <p-confirmDialog #cd [style]="{width: '30vw'}">
+                        <ng-template pTemplate="header">
+                            <h2>Xác nhận xóa</h2>
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                            <button type="button" pButton icon="pi pi-times" label="Không" (click)="cd.reject()"></button>
+                            <button type="button" pButton icon="pi pi-check" label="Có" (click)="cd.accept()"></button>
+                        </ng-template>
+                    </p-confirmDialog>
+                    <p-button (click)="confirm()" icon="pi pi-times" label="Xóa" m-2 px-5 py-3 justify-content-center></p-button>    
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="card">
+    <div class="grid">
+        <div class="col-12 md:col-2">
+                <div class="p-fluid">
+                    <div class="field">
+                        <p-panelMenu [model]="constructionItems"></p-panelMenu>
+                    </div>
     
-</div>
+                    <div class="field">
+                        <p-panelMenu [model]="pycNumberItems"></p-panelMenu>
+                    </div>
+    
+                    <div class="field">
+                        <p-panelMenu [model]="requestStatusItems"></p-panelMenu>
+                    </div>
+                    
+                </div>
+            
+        </div>
+        
+        
+        <div class="col-12 md:col-2">
+                <div class="p-fluid">
+                    <p-listbox [options]="requestOrderRow" optionLabel="name" [listStyle]="{ 'max-height': '100%' }"></p-listbox>
+                </div>
+            
+        </div>
+
+        <div class="col-12 md:col-8 ">
+            <div class="p-fluid">
+                <div class="field">
+                    <div class="card">  
+                        <p-table [value]="itemsDetailRow" [scrollable]="true" scrollHeight="60vh">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th pSortableColumn="name">Tên VT<p-sortIcon field="name"></p-sortIcon></th>
+                                        <th pSortableColumn="size">Kích thước<p-sortIcon field="size"></p-sortIcon></th>
+                                        <th pSortableColumn="place">Mô tả<p-sortIcon field="coSender"></p-sortIcon></th>
+                                        <th pSortableColumn="place">Qui cách<p-sortIcon field="place"></p-sortIcon></th>
+                                        <th pSortableColumn="pycNum">DVT<p-sortIcon field="pycNum"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Số lượng<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th pSortableColumn="status">Mục đích sử dụng<p-sortIcon field="status"></p-sortIcon></th>
+                                        <th></th>
+                                        
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-itemsDetailRow>
+                                    <tr>
+                                        <td>{{itemsDetailRow.name}}</td>
+                                        <td>{{itemsDetailRow.size}}</td>
+                                        <td>{{itemsDetailRow.description}}</td>
+                                        <td>{{itemsDetailRow.style}}</td>
+                                        <td>{{itemsDetailRow.dvt}}</td>
+                                        <td>{{itemsDetailRow.num}}</td>
+                                        <td>{{itemsDetailRow.useFor}}</td>
+                                        <td><p-button label="{{itemsDetailRow.isDelete}}" styleClass="p-button-link"></p-button></td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+
+    
+
+    
+
+    
+
+    
