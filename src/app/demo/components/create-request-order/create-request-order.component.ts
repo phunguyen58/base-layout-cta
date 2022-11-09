@@ -5,6 +5,7 @@ import { Component} from '@angular/core';
 })
 export class CreateRequestOrderComponent{
   selectedState: any = null;
+  currentDate: Date = new Date;
 
   dropdownConstructionItems = [
     { name: 'Minh Boho 1', code: 'Minh Boho 1'},
@@ -32,9 +33,9 @@ export class CreateRequestOrderComponent{
   ]
 
   itemsDetailRow = [
-    {name: "Chỉ dán cạnh", size: "21mm", description: "Chỉ La/Me PL-04 Rộng 21mm", style: "Đồng màu với mã ván", dvt: "md", num: "50", useFor: "ct NHA TOI", isChange: "Sửa", isDelete: "Xóa"},
-    {name: "Chỉ dán cạnh", size: "22mm", description: "Chỉ La/Me PL-04 Rộng 22mm", style: "Đồng màu với mã ván", dvt: "md", num: "60", useFor: "ct NHA TOI", isChange: "Sửa", isDelete: "Xóa"},
-    {name: "Chỉ dán cạnh", size: "23mm", description: "Chỉ La/Me PL-04 Rộng 23mm", style: "Đồng màu với mã ván", dvt: "md", num: "70", useFor: "ct NHA TOI", isChange: "Sửa", isDelete: "Xóa"},
+    {name: "Chỉ dán cạnh", size: "21mm", description: "Chỉ La/Me PL-04 Rộng 21mm", style: "Đồng màu với mã ván", dvt: "md", num: "50", useFor: "ct NHA TOI", isDelete: "Hủy"},
+    {name: "Chỉ dán cạnh", size: "22mm", description: "Chỉ La/Me PL-04 Rộng 22mm", style: "Đồng màu với mã ván", dvt: "md", num: "60", useFor: "ct NHA TOI", isDelete: "Hủy"},
+    {name: "Chỉ dán cạnh", size: "23mm", description: "Chỉ La/Me PL-04 Rộng 23mm", style: "Đồng màu với mã ván", dvt: "md", num: "70", useFor: "ct NHA TOI", isDelete: "Hủy"},
   ];
 
  

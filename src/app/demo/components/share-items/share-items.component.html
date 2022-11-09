@@ -28,7 +28,7 @@
         
         <div class="col-12">
             <div class="flex justify-content-between flex-wrap card-container">
-                <div class="flex align-items-start justify-content-center m-2">
+                <div class="flex align-items-start justify-content-center">
                     <button pButton pRipple type="button" label="Tạo mới" class="p-button-raised" m-2 px-5 py-3 justify-content-center [routerLink]="['/create-request-order']"></button>
                 </div>
                 
@@ -50,9 +50,10 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <div class="card">  
-                        <p-table [value]="shareItemsList">
-                            <ng-template pTemplate="header">
+                    <div class="card">
+                        
+                        <p-table [value]="shareItemsList" [scrollable]="true">
+                            <ng-template pTemplate="header" >
                                 <tr>
                                     <th pSortableColumn="provider">Nhà cung cấp<p-sortIcon field="code"></p-sortIcon></th>
                                     <th pSortableColumn="codeItem">Mã VT<p-sortIcon field="name"></p-sortIcon></th>
@@ -86,12 +87,11 @@
                                     <td>{{shareItemsList.stockQuantity}}</td>
                                     <td><p-checkbox [binary]="true" inputId="binary"></p-checkbox> 
                                         <label for="binary"></label></td>
-                                        <!-- NOTE: missing out ngModel -->
                                     <td><p-button label="{{shareItemsList.isEdit}}" styleClass="p-button-link"></p-button></td>
                                     <td><p-button label="{{shareItemsList.isDelete}}" styleClass="p-button-link"></p-button></td>
                                 </tr>
                             </ng-template>
-                        </p-table>
+                        </p-table> 
                     </div>
             </div>
             </div>

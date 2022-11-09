@@ -6,12 +6,17 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import {CalendarModule} from 'primeng/calendar';
-import {ButtonModule} from 'primeng/button';
-import {TableModule} from 'primeng/table';
-import {ToastModule} from 'primeng/toast';
+import { CalendarModule } from 'primeng/calendar';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TabViewModule } from 'primeng/tabview';
+import { MenuModule } from 'primeng/menu';
+import {ListboxModule} from 'primeng/listbox';
+import {PanelMenuModule} from 'primeng/panelmenu';
+
 // import { BrowserModule } from '@angular/platform-browser';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,7 +33,11 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     TableModule,
     ToastModule,
     ConfirmPopupModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    TabViewModule,
+    MenuModule,
+    ListboxModule,
+    PanelMenuModule,
   ],
   declarations: [RequestOrderComponent],
   bootstrap: [RequestOrderComponent]
